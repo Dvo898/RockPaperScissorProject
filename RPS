@@ -1,0 +1,74 @@
+var getUserChoice = function(userInput){
+
+    userInput= userInput.toLowerCase();
+     
+    if (userInput === 'rock'|| userInput === 'paper' || userInput === 'scissor'||userInput === 'bomb'){
+        return userInput;
+    }
+    else{
+        console.log(`input ${userInput} Error!!!!`);
+    }
+    
+};
+
+var getComputerChoice = function(){
+   
+if (Math.floor(Math.random()*3) === 1){
+    return getComputerChoice = 'rock';
+}   
+else if (Math.floor(Math.random()*3) === 2 ){
+    return getComputerChoice = 'paper';
+}
+else{
+    return getComputerChoice = 'scissor';
+}
+};
+
+var determineWinner = function(userChoice, compterChoice){
+    if(userChoice === compterChoice){
+        return 'The game was a tie';
+    }
+    if (userChoice === 'rock'){
+        if(compterChoice === 'paper'){
+            return 'Computer won';
+        }
+        else if(compterChoice === 'scissor'){
+            return 'User won';
+        }
+
+    };
+    if (userChoice === 'paper'){
+        
+        if(compterChoice === 'scissor'){
+            return 'Computer won';
+        }
+        else if(compterChoice === 'rock'){
+            return 'User won';
+        }
+
+    };
+    if (userChoice === 'scissor'){
+        if(compterChoice === 'rock'){
+            return 'Computer won';
+        }
+        else if(compterChoice === 'paper'){
+            return 'User won';
+        }
+
+    };
+    if (userChoice === 'bomb'){
+        return 'User won';
+    }
+};
+var playGame = function(){
+    var userChoice = getUserChoice('bomb');
+     console.log(userChoice);
+    
+    var compterChoice = getComputerChoice();
+     console.log(compterChoice);
+    
+     
+     console.log(determineWinner(userChoice,compterChoice));
+
+}
+playGame();
